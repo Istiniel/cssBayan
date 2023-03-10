@@ -1,0 +1,25 @@
+:root {
+  --primary-1: #778c2b;
+  --primary-2: #4c591c;
+  --primary-3: #bad94a;
+  --primary-4: #a4bf41;
+  --primary-5: #0d0d0d;
+}
+
+body {
+  background-image: linear-gradient(
+    to right top,
+    #778c2b,
+    #7f952f,
+    #889f33,
+    #90a837,
+    #99b23b,
+    #9eb83e,
+    #a4bf40,
+    #a9c543,
+    #adca45,
+    #b1cf46,
+    #b6d448,
+    #bad94a
+  );
+}
