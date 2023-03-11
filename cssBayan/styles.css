@@ -4,9 +4,6 @@
   --primary-3: #bad94a;
   --primary-4: #a4bf41;
   --primary-5: #0d0d0d;
-  --break-xs: 320px;
-  --break-md: 820px;
-  --break-lg: 1920px;
 
   --font-serif: 'Playfair Display', 'DejaVu Sans Mono', serif;
   --font-sans: 'Roboto', 'Helvetica Neue Light', sans-serif;
@@ -55,8 +52,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  cursor: pointer;
 }
 
 .mem__input {
@@ -107,13 +102,24 @@ body {
   background-image: url(./memes/right.svg);
 }
 
+/*  table */
 @media (min-width: 820px) {
   .mems__container {
     width: 90%;
   }
+
+  /* set min-height when input is selected */
+  .mem__input:checked ~ .mem__itself {
+    max-height: 80vh;
+  }
 }
 
+/* desktop */
 @media (min-width: 1920px) {
+  .mem {
+    cursor: pointer;
+  }
+
   .mems__container {
     width: 50%;
   }
@@ -123,23 +129,30 @@ body {
     background-image: none;
   }
 
-  /* show meme when hover on meme title */
-  .mem:hover .mem__itself {
+  /* set min-height when input is selected */
+  .mem__input:checked ~ .mem__itself {
     max-height: 60vh;
   }
 
-  /* paint all memes titles on hover */
-  .mems__container:hover .mem__title {
-    color: var(--primary-3);
-  }
+  @media (hover: hover) {
+    /* show meme when hover on meme title */
+    .mem:hover .mem__itself {
+      max-height: 60vh;
+    }
 
-  /* add arrow-right svg when hover on memes container */
-  .mems__container:hover .mem__title {
-    background-image: url(./memes/right.svg);
-  }
+    /* paint all memes titles on hover */
+    .mems__container:hover .mem__title {
+      color: var(--primary-3);
+    }
 
-  /* add arrow-down svg when hover on title */
-  .mems__container:hover .mem:hover .mem__title {
-    background-image: url(./memes/down.svg);
+    /* add arrow-right svg when hover on memes container */
+    .mems__container:hover .mem__title {
+      background-image: url(./memes/right.svg);
+    }
+
+    /* add arrow-down svg when hover on title */
+    .mems__container:hover .mem:hover .mem__title {
+      background-image: url(./memes/down.svg);
+    }
   }
 }
