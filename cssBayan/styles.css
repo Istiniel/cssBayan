@@ -4,6 +4,14 @@
   --primary-3: #bad94a;
   --primary-4: #a4bf41;
   --primary-5: #0d0d0d;
+  --break-xs: 320px;
+  --break-md: 820px;
+  --break-lg: 1920px;
+
+  --font-serif: 'Playfair Display', 'DejaVu Sans Mono', serif;
+  --font-sans: 'Roboto', 'Helvetica Neue Light', sans-serif;
+
+  --font-size: calc(2rem + 1vw);
 }
 
 body {
@@ -22,4 +30,116 @@ body {
     #b6d448,
     #bad94a
   );
+  padding: 10rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mems__container {
+  width: 95%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mem {
+  padding: 5rem;
+  background-color: var(--primary-1);
+  display: flex;
+  border-radius: 2rem;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.mem__input {
+  display: none;
+}
+
+.mem__itself {
+  max-height: 0;
+  margin-top: 4rem;
+
+  transition: max-height ease-in 0.5s;
+}
+
+.mem__title {
+  padding-right: 25%;
+  width: 100%;
+  align-self: flex-start;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--font-size);
+  color: var(--primary-5);
+  letter-spacing: 0.1rem;
+
+  transition: color ease-out 0.3s;
+  transition: background ease-in-out 0.2s;
+
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+/* set min-height when input is selected */
+.mem__input:checked ~ .mem__itself {
+  max-height: 60vh;
+}
+
+/* paint checked meme title on hover */
+.mem__input:checked ~ .mem__title {
+  color: var(--primary-3);
+}
+
+/* add arrow-down svg when mem is active */
+.mem__input:checked ~ .mem__title {
+  background-image: url(./memes/down.svg);
+}
+
+/* add arrow-right svg when mem is not active */
+.mem__input:not(checked) ~ .mem__title {
+  background-image: url(./memes/right.svg);
+}
+
+@media (min-width: 820px) {
+  .mems__container {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .mems__container {
+    width: 50%;
+  }
+
+  .mem__title {
+    padding-right: 10%;
+    background-image: none;
+  }
+
+  /* show meme when hover on meme title */
+  .mem:hover .mem__itself {
+    max-height: 60vh;
+  }
+
+  /* paint all memes titles on hover */
+  .mems__container:hover .mem__title {
+    color: var(--primary-3);
+  }
+
+  /* add arrow-right svg when hover on memes container */
+  .mems__container:hover .mem__title {
+    background-image: url(./memes/right.svg);
+  }
+
+  /* add arrow-down svg when hover on title */
+  .mems__container:hover .mem:hover .mem__title {
+    background-image: url(./memes/down.svg);
+  }
 }
