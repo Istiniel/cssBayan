@@ -116,10 +116,6 @@ body {
 
 /* desktop */
 @media (min-width: 1920px) {
-  .mem {
-    cursor: pointer;
-  }
-
   .mems__container {
     width: 50%;
   }
@@ -133,26 +129,41 @@ body {
   .mem__input:checked ~ .mem__itself {
     max-height: 60vh;
   }
+}
 
-  @media (hover: hover) {
-    /* show meme when hover on meme title */
-    .mem:hover .mem__itself {
-      max-height: 60vh;
-    }
+/* hover media */
+@media (hover: hover) {
+  .mem {
+    cursor: pointer;
+  }
 
-    /* paint all memes titles on hover */
-    .mems__container:hover .mem__title {
-      color: var(--primary-3);
-    }
+  /* remove arrow-down if device supports hover*/
+  .mem__input:checked ~ .mem__title {
+    background-image: none;
+  }
 
-    /* add arrow-right svg when hover on memes container */
-    .mems__container:hover .mem__title {
-      background-image: url(./memes/right.svg);
-    }
+  /* remove arrow-right if device supports hover*/
+  .mem__input:not(checked) ~ .mem__title {
+    background-image: none;
+  }
 
-    /* add arrow-down svg when hover on title */
-    .mems__container:hover .mem:hover .mem__title {
-      background-image: url(./memes/down.svg);
-    }
+  /* show meme when hover on meme title */
+  .mem:hover .mem__itself {
+    max-height: 60vh;
+  }
+
+  /* paint all memes titles on hover */
+  .mems__container:hover .mem__title {
+    color: var(--primary-3);
+  }
+
+  /* add arrow-right svg when hover on memes container */
+  .mems__container:hover .mem__title {
+    background-image: url(./memes/right.svg);
+  }
+
+  /* add arrow-down svg when hover on title */
+  .mems__container:hover .mem:hover .mem__title {
+    background-image: url(./memes/down.svg);
   }
 }
