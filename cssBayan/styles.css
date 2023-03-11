@@ -152,6 +152,11 @@ body {
     max-height: 60vh;
   }
 
+  /* show arrow down on checked input when memes container hovered  */
+  .mems__container:hover .mem__input:checked ~ .mem__title {
+    background-image: url(./memes/down.svg);
+  }
+
   /* paint all memes titles on hover */
   .mems__container:hover .mem__title {
     color: var(--primary-3);
